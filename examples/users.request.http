@@ -3,12 +3,17 @@ GET http://localhost:3006/api/users
 GET http://localhost:3006/api/users/:id
 
 POST http://localhost:3006/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc3ODgzYjRiLTY2NDktNDViNi04ODFhLTk1OWYzODE1ZjFiNyIsImlhdCI6MTcwMzIwMTAyMSwiZXhwIjoxNzAzMjg3NDIxfQ.yTabr5sl1mNQbYHJcEMxazUkVUNZIbRMRen9_gUEuOo
+Authorization: Bearer <token>
 Content-Type: application/json
 
 {
-  "name": "Pxndxs",
-  "email": "pxndxs12@pxndxs.com",
+  "name": "Pxndxs 2",
+  "lastname": "Last Pxndxs 2",
+  "birthdate": "1990-01-01",
+  "gender": "Male",
+  "phone": "123887912",
+  "info": "Este usuario es un segundo ejemplo",
+  "email": "pxndxs2@pxndxs.com",
   "password": "Hola1234",
   "role": "ADMIN"
 }

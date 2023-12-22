@@ -12,6 +12,11 @@ Content-Type: application/json
 
 {
   "name": "Pxndxs",
+  "lastname": "Last Pxndxs",
+  "birthdate": "1990-01-01",
+  "gender": "Male",
+  "phone": "123887912",
+  "info": "Este usuario es un ejemplo",
   "email": "pxndxs@pxndxs.com",
   "password": "Hola1234"
 }

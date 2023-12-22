@@ -19,6 +19,7 @@ export class UsersService {
         data: {
           ...createUserDto,
           password: hashedPassword,
+          birthdate: new Date( createUserDto.birthdate )
         }
       })
       return user
@@ -58,7 +59,8 @@ export class UsersService {
         where: { id },
         data: {
           ...updateUserDto,
-          password: password ? hashSync( password, 10 ) : undefined
+          password: password ? hashSync( password, 10 ) : undefined,
+          birthdate: updateUserDto.birthdate ? new Date( updateUserDto.birthdate ) : undefined
         }
       })
       return user
@@ -81,6 +83,7 @@ export class UsersService {
 
   private handlerExceptions ( error : any ) : never {
     if ( error.code === 'P2002' ) throw new BadRequestException( 'El email ya esta en uso' )
+    console.log( error )
     throw new InternalServerErrorException( 'Algo salio mal, por favor contacte al administrador' )
   }
 }

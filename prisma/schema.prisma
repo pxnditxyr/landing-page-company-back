@@ -17,9 +17,114 @@ model Users {
   email     String  @unique
   password  String
   name      String
+  lastname  String
+  birthdate DateTime @db.Date
+  gender    String
+  documentNumber String?
+  phone     String
+  info      String
   role      Role     @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  teamMembers TeamMembers[] @relation( "user_team_members" )
+
   @@map("users")
 }
+
+
+model Companies {
+  id        String  @id @default(uuid())
+  name      String
+  details   String
+  phone     String
+  info      String
+  mission   String
+  vision    String
+  address   String?
+  website   String?
+  email     String?
+  documentNumber String?
+  foundedAt DateTime @db.Date
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  team Teams[] @relation( "company_teams" )
+
+  @@map("companies")
+}
+
+model Projects {
+  id        String  @id @default(uuid())
+  name      String
+  details   String
+  info      String
+  imageUrl  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  projectsTeams ProjectsTeams[] @relation( "project_projects_teams" )
+
+  @@map("projects")
+}
+
+model Teams {
+  id        String  @id @default(uuid())
+  name      String
+  details   String
+  imageUrl  String
+  companyId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  company Companies @relation( "company_teams", fields: [companyId], references: [id] )
+  teamMembers TeamMembers[] @relation( "team_team_members" )
+  projectsTeams ProjectsTeams[] @relation( "team_projects_teams" )
+
+  @@map("teams")
+}
+
+model TeamMembers {
+  id        String  @id @default(uuid())
+  userId    String
+  teamId    String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  team Teams @relation( "team_team_members", fields: [teamId], references: [id] )
+  user Users @relation( "user_team_members", fields: [userId], references: [id] )
+
+  @@map("team_members")
+}
+
+model ProjectsTeams {
+  id        String  @id @default(uuid())
+  projectId String
+  teamId    String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  project Projects @relation( "project_projects_teams", fields: [projectId], references: [id] )
+  team Teams @relation( "team_projects_teams", fields: [teamId], references: [id] )
+
+  @@map("projects_teams")
+}
+
+model ContactUs {
+  id        String  @id @default(uuid())
+  name      String
+  email     String
+  phone     String
+  message   String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("contact_us")
+}
+

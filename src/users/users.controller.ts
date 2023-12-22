@@ -26,7 +26,7 @@ export class UsersController {
   }
 
   @Patch( ':id' )
-  @Auth( ValidRoles.ADMIN )
+  @Auth()
   async update (
     @Param( 'id', ParseUUIDPipe ) id : string,
     @Body() updateUserDto : UpdateUserDto
@@ -35,7 +35,7 @@ export class UsersController {
   }
 
   @Delete( ':id' )
-  @Auth( ValidRoles.ADMIN )
+  @Auth()
   async remove ( @Param( 'id', ParseUUIDPipe ) id : string ) : Promise<User> {
     return this.usersService.remove( id )
   }

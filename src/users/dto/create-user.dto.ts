@@ -1,4 +1,4 @@
-import { IsEmail, IsIn, IsNotEmpty, IsString, Matches } from 'class-validator'
+import { IsDateString, IsEmail, IsIn, IsNotEmpty, IsString, Matches } from 'class-validator'
 import { ValidRoles } from '../enums'
 
 export class CreateUserDto {
@@ -8,6 +8,24 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   name: string
+
+  @IsString()
+  @IsNotEmpty()
+  lastname: string
+
+  @IsDateString()
+  birthdate: Date
+
+  @IsIn([ 'Male', 'Female', 'Other' ])
+  gender: string
+
+  @IsString()
+  @IsNotEmpty()
+  phone: string
+
+  @IsString()
+  @IsNotEmpty()
+  info: string
 
   @IsString()
   @IsNotEmpty()
