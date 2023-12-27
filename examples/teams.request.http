@@ -1,0 +1,28 @@
+GET http://localhost:3006/api/teams
+
+GET http://localhost:3006/api/teams/:id
+
+POST http://localhost:3006/api/teams
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Pxndxs 2",
+  "details": "Estos son los detalles de la empresa",
+  "imageUrl": "https://pxndxs.com/image.png",
+  "companyId": "a975bd2d-0fd7-4960-90fa-35a2bbfa3fd0"
+}
+
+PATCH http://localhost:3006/api/teams/:id
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Pxndxs 2",
+  "details": "Estos son los detalles de la empresa",
+  "imageUrl": "https://pxndxs.com/image.png",
+  "companyId": "2714b9b7-5e6a-4bf4-a73e-aa108b3742e5" 
+}
+
+DELETE http://localhost:3006/api/teams/:id
+Authorization: Bearer <token>

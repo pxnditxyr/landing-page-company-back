@@ -1,0 +1,15 @@
+GET http://localhost:3006/api/contact-us
+Authorization: Bearer <token>
+
+GET http://localhost:3006/api/contact-us/:id
+Authorization: Bearer <token>
+
+POST http://localhost:3006/api/contact-us
+Content-Type: application/json
+
+{
+  "name": "Pxndxs",
+  "email": "pxndxsxdxdd@pxndxs.com",
+  "phone": "2133123123",
+  "message": "Hello World heutoneuh"
+}

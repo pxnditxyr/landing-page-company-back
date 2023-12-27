@@ -1,0 +1,28 @@
+GET http://localhost:3006/api/projects
+
+GET http://localhost:3006/api/projects/:id
+
+POST http://localhost:3006/api/projects
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Pxndxs 2",
+  "details": "Estos son los detalles de la empresa",
+  "imageUrl": "https://pxndxs.com/image.png",
+  "info": "Estos son los detalles de la empresa"
+}
+
+PATCH http://localhost:3006/api/projects/:id
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Pxndxs 2",
+  "details": "Estos son los detalles de la empresa",
+  "imageUrl": "https://pxndxs.com/image.png",
+  "companyId": "2714b9b7-5e6a-4bf4-a73e-aa108b3742e5" 
+}
+
+DELETE http://localhost:3006/api/projects/:id
+Authorization: Bearer <token>

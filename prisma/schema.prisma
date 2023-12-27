@@ -50,7 +50,7 @@ model Companies {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  team Teams[] @relation( "company_teams" )
+  teams Teams[] @relation( "company_teams" )
 
   @@map("companies")
 }

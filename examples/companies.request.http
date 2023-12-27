@@ -1,0 +1,42 @@
+GET http://localhost:3006/api/companies
+
+GET http://localhost:3006/api/companies/:id
+
+POST http://localhost:3006/api/companies
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Pxndxs 2",
+  "phone": "123887912",
+  "info": "Esta empresa es un ejemplo",
+  "email": "pxndxs2@pxndxs.com",
+  "details": "Estos son los detalles de la empresa",
+  "mission": "Esta es la misión de la empresa",
+  "vision": "Esta es la visión de la empresa",
+  "foundedAt": "2001-12-12",
+  "address": "Calle 123",
+  "website": "https://pxndxs.com",
+  "documentNumber": "123456789"
+}
+
+PATCH http://localhost:3006/api/companies/:id
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Pxndxs 2",
+  "phone": "123887912",
+  "info": "Esta empresa es un ejemplo",
+  "email": "pxndxs2@pxndxs.com",
+  "details": "Estos son los detalles de la empresa",
+  "mission": "Esta es la misión de la empresa",
+  "vision": "Esta es la visión de la empresa",
+  "foundedAt": "2001-12-12",
+  "address": "Calle 123",
+  "website": "https://pxndxs.com",
+  "documentNumber": "123456789"
+}
+
+DELETE http://localhost:3006/api/companies/:id
+Authorization: Bearer <token>

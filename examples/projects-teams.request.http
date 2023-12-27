@@ -1,0 +1,24 @@
+GET http://localhost:3006/api/projects-teams
+
+GET http://localhost:3006/api/projects-teams/:id
+
+POST http://localhost:3006/api/projects-teams
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "teamId": "646b761e-0580-484c-b02a-cdb2cffbf437",
+  "projectId": "524e2373-cc19-4a7f-8964-d8e6e266c05a"
+}
+
+PATCH http://localhost:3006/api/projects-teams/:id
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "teamId": "2714b9b7-5e6a-4bf4-a73e-aa108b3742e5",
+  "projectId": "2714b9b7-5e6a-4bf4-a73e-aa108b3742e5"
+}
+
+DELETE http://localhost:3006/api/projects-teams/:id
+Authorization: Bearer <token>
