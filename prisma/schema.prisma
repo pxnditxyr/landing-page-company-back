@@ -80,7 +80,7 @@ model Teams {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  company Companies @relation( "company_teams", fields: [companyId], references: [id] )
+  company Companies @relation( "company_teams", fields: [companyId], references: [id], onDelete: Cascade )
   teamMembers TeamMembers[] @relation( "team_team_members" )
   projectsTeams ProjectsTeams[] @relation( "team_projects_teams" )
 
@@ -95,8 +95,8 @@ model TeamMembers {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  team Teams @relation( "team_team_members", fields: [teamId], references: [id] )
-  user Users @relation( "user_team_members", fields: [userId], references: [id] )
+  team Teams @relation( "team_team_members", fields: [teamId], references: [id], onDelete: Cascade )
+  user Users @relation( "user_team_members", fields: [userId], references: [id], onDelete: Cascade )
 
   @@map("team_members")
 }
@@ -109,8 +109,8 @@ model ProjectsTeams {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  project Projects @relation( "project_projects_teams", fields: [projectId], references: [id] )
-  team Teams @relation( "team_projects_teams", fields: [teamId], references: [id] )
+  project Projects @relation( "project_projects_teams", fields: [projectId], references: [id], onDelete: Cascade )
+  team Teams @relation( "team_projects_teams", fields: [teamId], references: [id], onDelete: Cascade )
 
   @@map("projects_teams")
 }

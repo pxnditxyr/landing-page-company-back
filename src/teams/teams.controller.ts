@@ -27,6 +27,7 @@ export class TeamsController {
   }
 
   @Patch( ':id' )
+  @Auth( ValidRoles.ADMIN )
   async update (
     @Param( 'id', ParseUUIDPipe ) id : string,
     @Body() updateTeamDto: UpdateTeamDto
@@ -35,6 +36,7 @@ export class TeamsController {
   }
 
   @Delete( ':id' )
+  @Auth( ValidRoles.ADMIN )
   async remove( @Param( 'id', ParseUUIDPipe ) id : string ) : Promise<Team> {
     return this.teamsService.remove( id )
   }

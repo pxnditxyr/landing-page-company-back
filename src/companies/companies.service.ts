@@ -40,6 +40,12 @@ export class CompaniesService {
     return company
   }
 
+  async findFirst () : Promise<Company> {
+    const company = await this.prismaService.companies.findFirst()
+    if ( !company ) throw new NotFoundException( 'No hay empresas registradas' )
+    return company
+  }
+
   async update ( id : string, updateCompanyDto : UpdateCompanyDto ) : Promise<Company> {
     await this.findOne( id )
     try {

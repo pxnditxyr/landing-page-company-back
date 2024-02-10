@@ -73,7 +73,7 @@ export class UsersService {
     await this.findOne( id )
     try {
       const user = await this.prismaService.users.delete({
-        where: { id }
+        where: { id },
       })
       return user
     } catch ( error ) {

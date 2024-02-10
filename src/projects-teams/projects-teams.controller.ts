@@ -6,7 +6,6 @@ import { Auth } from 'src/auth/decorators'
 import { ValidRoles } from 'src/users/enums'
 
 @Controller( 'projects-teams' )
-
 export class ProjectsTeamsController {
 
   constructor( private readonly projectsTeamsService : ProjectsTeamsService ) {}

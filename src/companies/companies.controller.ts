@@ -26,6 +26,11 @@ export class CompaniesController {
     return this.companiesService.findOne( id )
   }
 
+  @Get( 'first/:id' )
+  async findFirst () : Promise<Company> {
+    return this.companiesService.findFirst()
+  }
+
   @Patch( ':id' )
   @Auth( ValidRoles.ADMIN )
   async update (

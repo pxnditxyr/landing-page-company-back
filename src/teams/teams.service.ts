@@ -19,11 +19,13 @@ export class TeamsService {
   ) {}
 
   async create ( createTeamDto : CreateTeamDto ) : Promise<Team> {
-    const { companyId } = createTeamDto
-    await this.companiesService.findOne( companyId )
+    const company = await this.companiesService.findFirst()
     try {
       const team = await this.prismaService.teams.create({
-        data: createTeamDto,
+        data: {
+          ...createTeamDto,
+          companyId: company.id
+        },
         include: teamsIncludes
       })
       return team
@@ -51,13 +53,14 @@ export class TeamsService {
   }
 
   async update ( id : string, updateTeamDto : UpdateTeamDto ) : Promise<Team> {
-    await this.findOne( id )
-    const { companyId } = updateTeamDto
-    if ( companyId ) await this.companiesService.findOne( companyId )
+    const company = await this.companiesService.findFirst()
     try {
       const team = await this.prismaService.teams.update({
         where: { id },
-        data: updateTeamDto,
+        data: {
+          ...updateTeamDto,
+          companyId: company.id
+        },
         include: teamsIncludes
       })
       return team

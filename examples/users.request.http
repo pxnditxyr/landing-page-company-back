@@ -7,13 +7,13 @@ Authorization: Bearer <token>
 Content-Type: application/json
 
 {
-  "name": "Pxndxs 2",
-  "lastname": "Last Pxndxs 2",
+  "name": "Pxndxs",
+  "lastname": "Ricaldi",
   "birthdate": "1990-01-01",
   "gender": "Male",
   "phone": "123887912",
   "info": "Este usuario es un segundo ejemplo",
-  "email": "pxndxs2@pxndxs.com",
+  "email": "pxndxs@pxndxs.com",
   "password": "Hola1234",
   "role": "ADMIN"
 }

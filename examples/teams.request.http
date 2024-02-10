@@ -9,8 +9,7 @@ Content-Type: application/json
 {
   "name": "Pxndxs 2",
   "details": "Estos son los detalles de la empresa",
-  "imageUrl": "https://pxndxs.com/image.png",
-  "companyId": "a975bd2d-0fd7-4960-90fa-35a2bbfa3fd0"
+  "imageUrl": "https://pxndxs.com/image.png"
 }
 
 PATCH http://localhost:3006/api/teams/:id
@@ -20,8 +19,7 @@ Content-Type: application/json
 {
   "name": "Pxndxs 2",
   "details": "Estos son los detalles de la empresa",
-  "imageUrl": "https://pxndxs.com/image.png",
-  "companyId": "2714b9b7-5e6a-4bf4-a73e-aa108b3742e5" 
+  "imageUrl": "https://pxndxs.com/image.png"
 }
 
 DELETE http://localhost:3006/api/teams/:id

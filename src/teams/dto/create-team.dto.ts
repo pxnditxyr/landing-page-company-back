@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsUUID } from 'class-validator'
+import { IsNotEmpty, IsString } from 'class-validator'
 
 export class CreateTeamDto {
   @IsString()
@@ -12,7 +12,4 @@ export class CreateTeamDto {
   @IsString()
   @IsNotEmpty()
   imageUrl: string
-
-  @IsUUID()
-  companyId: string
 }

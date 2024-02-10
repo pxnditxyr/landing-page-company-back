@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, ParseUUIDPipe } from '@nestjs/common'
+import { Controller, Get, Post, Body, Param, ParseUUIDPipe, Delete } from '@nestjs/common'
 import { ContactUsService } from './contact-us.service'
 import { CreateContactUsDto } from './dto/create-contact-us.dto'
 import { ContactUs } from './entities/contact-us.entity'
@@ -25,5 +25,11 @@ export class ContactUsController {
   @Auth( ValidRoles.ADMIN )
   async findOne ( @Param( 'id', ParseUUIDPipe ) id : string ) : Promise<ContactUs> {
     return this.contactUsService.findOne( id )
+  }
+
+  @Delete( ':id' )
+  @Auth( ValidRoles.ADMIN )
+  async delete ( @Param( 'id', ParseUUIDPipe ) id : string ) : Promise<ContactUs> {
+    return this.contactUsService.delete( id )
   }
 }

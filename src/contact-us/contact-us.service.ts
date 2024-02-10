@@ -35,4 +35,12 @@ export class ContactUsService {
     if ( !contactUs ) throw new NotFoundException( 'El formulario de contacto que busca no existe' )
     return contactUs
   }
+
+  async delete ( id : string ) : Promise<ContactUs> {
+    await this.findOne( id )
+    const contactUs = await this.prismaService.contactUs.delete({
+      where: { id }
+    })
+    return contactUs
+  }
 }
